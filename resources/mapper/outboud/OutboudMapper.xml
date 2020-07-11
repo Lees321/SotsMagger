@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="cn.erp.dao.OutboudDao">
+		<select id="getOutboudList" resultMap="olist">
+			select o.*,s.* from sots_Blog o
+		inner join sots_user s on(o.userId=s.userId)
+		
+		</select>
+		<resultMap type="Blog" id="olist" autoMapping="true">
+		<association property="user" javaType="User">
+			<id column="userId" property="userId"/>
+			<result column="userPhoto" property="userPhoto"/>
+			<result column="userName" property="userName"/>
+		</association>
+		
+	</resultMap>
+	</mapper>

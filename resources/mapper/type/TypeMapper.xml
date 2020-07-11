@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.erp.dao.TypeDao">
+	<!-- 增加功能 -->
+	<insert id="addType" parameterType="Producttype">
+		insert into sots_producttype(yName)
+		values(#{yName})
+	</insert>
+	
+	<!-- 查询所有数据的方法 -->
+	<select id="getTypeList" resultType="Producttype">
+		select * from sots_producttype
+	</select>
+	
+	<!-- 删除数据的方法 -->
+	<delete id="deleteType">
+		delete from sots_producttype where yid=#{yid}
+	</delete>
+	
+	<select id="findById" resultType="Producttype">
+		select * from sots_producttype where yid=#{yid}
+	</select>
+	
+</mapper>	
+	
